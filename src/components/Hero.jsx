@@ -10,7 +10,7 @@ function HeroLeft() {
       <h1 className="text-5xl py-6">
         I'm
         <br />
-        <span className="font-bold">Alankriti Mallick</span>
+        <span className="font-bold hover:text-7xl transition-all duration-500">Alankriti Mallick</span>
       </h1>
       <div className="h-1 w-1/3 bg-[#FFE5E5] rounded-xl"></div>
       <p className="w-2/3 py-6">
@@ -82,7 +82,7 @@ function Image() {
       <div className="absolute w-120 h-120 left-95 bottom-0 bg-[#070F2B] rounded-full opacity-20 blur-sm z-0"></div>
       <div className="absolute left-110 bottom-0 h-9/10 z-20">
         <img
-          src="./alankriti.PNG"
+          src="./alankriti_2.png"
           alt="Overlay"
           className="max-h-full filter drop-shadow-[0_10px_30px_rgba(0,0,0,0.7)]"
         />
