@@ -1,17 +1,20 @@
-:root {
-  --card-height: 300px;
-  --card-width: calc(var(--card-height) / 1.5);
-}
-
 *{
   scroll-behavior: smooth;
 }
 
-.skills {
+.dark .skills {
   background-color: #070f2b;
   opacity: 1;
   background-image: linear-gradient(#756ab642 4px, transparent 4px),
     linear-gradient(to right, #756ab642 4px, #070f2b 4px);
+  background-size: 100px 100px;
+}
+
+.skills {
+  background-color: #FFE5E5;
+  opacity: 1;
+  background-image: linear-gradient(#070F2B42 4px, transparent 4px),
+    linear-gradient(to right, #070F2B42 4px, #FFE5E5 4px);
   background-size: 100px 100px;
 }
 

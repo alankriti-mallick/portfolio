@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@theme {
+  --color-dark-400: #070F2B;
+  --color-dark-300: #1B1A55;
+  --color-dark-200: #535C91;
+  --color-dark-100: #9290C3;
+  --color-dark-text: #FFE5E5;
+  
+  --color-light-400: #756AB6;
+  --color-light-300: #AC87C5;
+  --color-light-200: #E0AED0;
+  --color-light-100: #FFE5E5;
+  --color-light-text: #070F2B;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
 * {
   font-family: "Outfit", sans-serif;
   /* background-color: #756AB6; */

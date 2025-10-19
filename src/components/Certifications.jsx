@@ -25,7 +25,7 @@ function Certifications() {
     },
   ];
   return (
-    <div className="bg-gradient-to-b from-[#070F2B] to-[#1B1A55] pb-0.5">
+    <div className="bg-gradient-to-b from-light-400 to-light-300 dark:bg-gradient-to-b dark:from-dark-400 dark:to-dark-300 pb-0.5">
     <section id="certifications" className="certification-container flex flex-wrap justify-center gap-12 p-12 pt-30 ">
       {certificates.map((c) => (
         <CertificationCard certificate={c} />
