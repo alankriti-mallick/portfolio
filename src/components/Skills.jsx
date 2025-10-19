@@ -1,5 +1,6 @@
 import SkillCard from "./SkillCard";
 import { VscAzure } from "react-icons/vsc";
+import { SiDotnet } from "react-icons/si";
 import {
   TbBrandCSharp,
   TbBrandTerraform,
@@ -14,6 +15,7 @@ function Skills() {
   const skills = [
     { name: "Azure", icon: <VscAzure /> },
     { name: "C#", icon: <TbBrandCSharp /> },
+    { name: "DotNet", icon: <SiDotnet /> },
     { name: "Java", icon: <FaJava /> },
     { name: "React", icon: <FaReact /> },
     { name: "Git", icon: <FaGitAlt /> },
@@ -23,33 +25,41 @@ function Skills() {
   ];
 
   return (
-    <div className="skills h-120 flex flex-col justify-center items-center bg-cover bg-center">
-      <div className="mt-8 h-full max-w-screen-xl flex flex-col justify-center">
+    <section id="skills" className="skills h-100 md:h-120 flex flex-col justify-center items-center bg-cover bg-center px-0">
+      <div className="mt-8 h-full w-full max-w-screen-xl flex flex-col justify-center">
         <Splide
           options={{
-            type: "loop", // Loop back to the beginning when reaching the end
+            type: "loop", // Loop slides
+            perPage: 3, // Show 3 slides per view on desktop
+            perMove: 1,
+            breakpoints: {
+              // Responsive slides per view
+              1024: { perPage: 4 },
+              768: { perPage: 2 },
+              480: { perPage: 1 },
+            },
             autoScroll: {
               pauseOnHover: true,
               pauseOnFocus: true,
-              rewind: true, // Rewind to start when the end is reached
-              speed: 1, // Scrolling speed
+              rewind: true,
+              speed: 1,
             },
-            arrows: false, // Hide navigation arrows
-            pagination: false, // Hide pagination dots
+            arrows: false,
+            pagination: false,
+            gap: "1.5rem",
             fixedWidth: "200px", // Fixed width for each slide
-            height:"300px",
-            gap: "20px", // Gap between slides
+            fixedHeight:"300px"
           }}
-          extensions={{ AutoScroll }} // Use the AutoScroll extension
+          extensions={{ AutoScroll }}
         >
-          {skills.map((s) => (
-            <SplideSlide>
+          {skills.map((s, index) => (
+            <SplideSlide key={index}>
               <SkillCard name={s.name} icon={s.icon} />
             </SplideSlide>
           ))}
         </Splide>
       </div>
-    </div>
+    </section>
   );
 }
 

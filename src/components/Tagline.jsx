@@ -31,14 +31,14 @@ function Tagline() {
   }
 
   return (
-    <div className="absolute -mt-10 h-20 w-full z-30 flex justify-center text-base">
+    <div className="absolute -mt-10 h-20 w-full z-30 flex justify-center text-xs sm:text-sm md:text-base lg:text-xl">
       <div
-        className="absolute w-6/10 h-full rounded-3xl bg-[#060c2433] backdrop-blur-sm shadow-[0_0_5px_#ffe5e56d] transition-all duration-500 ease-out hover:shadow-[0_0_10px_#FFE5E5]"
+        className="absolute w-8/10 lg:w-6/10 h-full rounded-3xl bg-[#060c2433] backdrop-blur-sm shadow-[0_0_5px_#ffe5e56d] transition-all duration-500 ease-out hover:shadow-[0_0_10px_#FFE5E5]"
         style={{transform}}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="flex justify-evenly items-center h-full">
+        <div className="flex justify-evenly flex-wrap items-center h-full p-4 sm:p-0">
           {tags.map((t) => (
             <p>{t}</p>
           ))}
