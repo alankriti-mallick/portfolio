@@ -1,25 +1,80 @@
+import { useState } from "react";
 import { LiaClipboardListSolid } from "react-icons/lia";
 
 function Navbar() {
-  const menuItems = ["Home", "Skills", "Projects", "Certifications"];
+  const menuItems = ["Home", "Skills", "Certifications"];
+  const [open, setOpen] = useState(false);
+
   return (
-    <div className="flex justify-evenly items-center bg-[#070F2B] max-h-16">
-      <h2 className="p-4">Alankriti</h2>
-      <ul className="flex justify-evenly">
-        {menuItems.map((i) => (
-          <li className="p-4" key={i}>
-            <a href={`#${i.toLowerCase()}`}>{i}</a>
-          </li>
-        ))}
-      </ul><div className="h-full p-4 text-3xl text-[#FFE5E5] hover:drop-shadow-[0_0_10px_#FFE5E5] ease-in-out duration-500">
+    <nav className="bg-[#070F2B] text-[#FFE5E5] w-full fixed top-0 left-0 z-50">
+      <div className="max-w-screen-xl mx-auto flex justify-between items-center p-4">
+        {/* Brand */}
+        <h2 className="text-lg sm:text-xl font-semibold">Alankriti</h2>
+
+        {/* Desktop Menu */}
+        <ul className="hidden md:flex space-x-6">
+          {menuItems.map((i) => (
+            <li
+              key={i}
+              className="hover:text-[#FFE5E5]/80 transition-colors duration-300"
+            >
+              <a
+                href={`#${i.toLowerCase()}`}
+              >
+                {i}
+              </a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Resume Icon */}
+        <div className="hidden md:block text-2xl hover:drop-shadow-[0_0_10px_#FFE5E5] transition-all duration-500">
           <a
             href="https://docs.google.com/document/d/1xNBDaKUYEzP5sTmyMSxGCIonp49C69YF_2zKLh14g2A/edit?usp=sharing"
             target="_blank"
+            rel="noopener noreferrer"
           >
             <LiaClipboardListSolid />
           </a>
         </div>
-    </div>
+
+        {/* Mobile Hamburger */}
+        <div
+          className="md:hidden text-2xl cursor-pointer"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </div>
+      </div>
+
+      {/* Mobile Menu with Slide Animation */}
+      <div
+        className={`md:hidden bg-[#070F2B] overflow-hidden transition-all duration-500 ease-in-out ${
+          open ? "max-h-screen py-4" : "max-h-0 py-0"
+        }`}
+      >
+        <div className="flex flex-col items-center space-y-4">
+          {menuItems.map((i) => (
+            <a
+              key={i}
+              href={`#${i.toLowerCase()}`}
+              className="hover:text-[#FFE5E5]/80 transition-colors duration-300"
+              onClick={()=>{setOpen(!open)}}
+            >
+              {i}
+            </a>
+          ))}
+          <a
+            href="https://docs.google.com/document/d/1xNBDaKUYEzP5sTmyMSxGCIonp49C69YF_2zKLh14g2A/edit?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-2xl hover:drop-shadow-[0_0_10px_#FFE5E5] transition-all duration-500"
+          >
+            <LiaClipboardListSolid />
+          </a>
+        </div>
+      </div>
+    </nav>
   );
 }
 
